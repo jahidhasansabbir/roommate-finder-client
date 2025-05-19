@@ -16,13 +16,27 @@ const Header = () => {
       <li>
         <NavLink to="/my-listing">My Listings</NavLink>
       </li>
+      <li>
+        <NavLink to="/login" className="md:hidden">
+          Log in
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/register" className="md:hidden">
+          Register
+        </NavLink>
+      </li>
     </>
   );
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-100 p-0 shadow-sm w-11/12 mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn pl-0 btn-ghost lg:hidden">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn pl-0 btn-ghost lg:hidden"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -46,13 +60,21 @@ const Header = () => {
             {li}
           </ul>
         </div>
-        <NavLink to='/' className="btn btn-ghost text-xl"><span>Roommate</span><span className="-ml-1.5 text-blue-500">Finder</span></NavLink>
+        <NavLink to="/" className="btn btn-ghost text-xl">
+          <span>Roommate</span>
+          <span className="-ml-1.5 text-blue-500">Finder</span>
+        </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{li}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <NavLink to="/login" className="btn bg-blue-600 ml-2 hidden md:flex">
+          Log in
+        </NavLink>
+        <NavLink to="/register" className="btn bg-blue-600 ml-2 hidden md:flex">
+          Register
+        </NavLink>
       </div>
     </div>
   );

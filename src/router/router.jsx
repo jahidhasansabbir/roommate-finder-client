@@ -4,6 +4,8 @@ import Home from "../pages/Home";
 import AddToFindRoommate from "../pages/AddToFindRoommate";
 import BrowseListing from "../pages/BrowseListing";
 import MyLIsting from "../pages/MyLIsting";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 export const router = createBrowserRouter([
     {
@@ -25,6 +27,14 @@ export const router = createBrowserRouter([
             {
                 path: 'my-listing',
                 Component: MyLIsting,
+            },
+            {
+                path:'/login',
+                Component: Login
+            },
+            {
+                path:'register',
+                Component: Register
             }
 
         ]
