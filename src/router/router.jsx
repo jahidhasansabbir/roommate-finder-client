@@ -8,6 +8,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Details from "../pages/Details";
 import PrivateRoute from "../provider/PrivateRoute";
+import UpdatePost from "../pages/UpdatePost";
 
 export const router = createBrowserRouter([
     {
@@ -29,6 +30,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'my-listing',
+                loader: ()=>fetch('http://localhost:3000/roommate'),
                 Component: MyLIsting,
             },
             {
@@ -43,6 +45,11 @@ export const router = createBrowserRouter([
                 path: 'details/:id',
                 loader: ({params})=>fetch(`http://localhost:3000/details/${params.id}`),
                 element: <PrivateRoute><Details/></PrivateRoute>
+            },
+            {
+                path: 'update/:id',
+                loader: ({params})=>fetch(`http://localhost:3000/update/${params.id}`),
+                Component: UpdatePost
             }
 
         ]
