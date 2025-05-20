@@ -31,7 +31,7 @@ const Header = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 p-0 shadow-sm w-11/12 mx-auto">
+    <div className="navbar bg-base-100 p-0 w-11/12 mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <div
@@ -81,7 +81,7 @@ const Header = () => {
                   console.log('logout');
                 })
               }}
-              className="btn bg-blue-600 ml-2"
+              className="btn text-white bg-blue-600 ml-2"
             >
               Log out
             </button>

@@ -6,6 +6,8 @@ import BrowseListing from "../pages/BrowseListing";
 import MyLIsting from "../pages/MyLIsting";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import Details from "../pages/Details";
+import PrivateRoute from "../provider/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -29,12 +31,17 @@ export const router = createBrowserRouter([
                 Component: MyLIsting,
             },
             {
-                path:'/login',
+                path:'login',
                 Component: Login
             },
             {
                 path:'register',
                 Component: Register
+            },
+            {
+                path: 'details/:id',
+                loader: ({params})=>fetch(`http://localhost:3000/details/${params.id}`),
+                element: <PrivateRoute><Details/></PrivateRoute>
             }
 
         ]
