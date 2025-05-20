@@ -1,7 +1,9 @@
-import React from "react";
+import React, { use } from "react";
 import { NavLink } from "react-router";
+import { AuthContext } from "../../context/AuthContext";
 
 const Header = () => {
+  const { user,logOut } = use(AuthContext);
   const li = (
     <>
       <li>
@@ -69,12 +71,37 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1">{li}</ul>
       </div>
       <div className="navbar-end">
-        <NavLink to="/login" className="btn bg-blue-600 ml-2 hidden md:flex">
-          Log in
-        </NavLink>
-        <NavLink to="/register" className="btn bg-blue-600 ml-2 hidden md:flex">
-          Register
-        </NavLink>
+        {user ? (
+          <>
+            <img className="w-10 h-10 rounded-full" src={user.photoURL} alt="" />
+            <button
+              onClick={() => {
+                logOut()
+                .then(()=>{
+                  console.log('logout');
+                })
+              }}
+              className="btn bg-blue-600 ml-2"
+            >
+              Log out
+            </button>
+          </>
+        ) : (
+          <>
+            <NavLink
+              to="/login"
+              className="btn bg-blue-600 ml-2 hidden md:flex"
+            >
+              Log in
+            </NavLink>
+            <NavLink
+              to="/register"
+              className="btn bg-blue-600 ml-2 hidden md:flex"
+            >
+              Register
+            </NavLink>
+          </>
+        )}
       </div>
     </div>
   );

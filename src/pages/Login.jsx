@@ -1,5 +1,6 @@
 import React, { use } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { NavLink } from "react-router";
 
 const Login = () => {
     const {userSignIn, userGoogleSignIn} = use(AuthContext)
@@ -20,7 +21,9 @@ const Login = () => {
  }
   return (
     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto">
+     
       <div className="card-body">
+        <h1 className="text-2xl font-bold md:text-4xl">Log in now!</h1>
         <form onSubmit={handleLoginWithEmail} className="fieldset">
           <label className="label">Email</label>
           <input type="email" name="email" className="input" placeholder="Email" />
@@ -63,6 +66,7 @@ const Login = () => {
           Login with Google
         </button>
       </div>
+       <p className="text-center pb-4">Haven't an account? <NavLink to='/register'><span className="text-blue-700 hover:underline">Register</span></NavLink></p>
     </div>
   );
 };
