@@ -1,11 +1,32 @@
-import React from 'react';
+import React from "react";
+import { useLoaderData } from "react-router";
+import TableRow from "../components/TableRow/TableRow";
 
 const BrowseListing = () => {
-    return (
-        <div>
-            Browse listing
-        </div>
-    );
+  const roommates = useLoaderData();
+  return (
+    <div className="w-11/12 mx-auto">
+      <div className="overflow-x-auto">
+        <table className="table">
+          {/* head */}
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Location</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {roommates.map((roommate) => (
+              <TableRow key={roommate._id} roommate={roommate}></TableRow>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 };
 
 export default BrowseListing;
