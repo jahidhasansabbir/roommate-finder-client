@@ -4,7 +4,7 @@ import { NavLink } from 'react-router';
 const MyListingRow = ({roommate}) => {
      const { _id,displayName, title, location, email } = roommate;
      const handleDeletePost=(id)=>{
-        fetch('http://localhost:3000/delete', {
+        fetch(`http://localhost:3000/delete/${id}`, {
             method: 'DELETE'
         }).then(res=>res.json())
         .then(data=>{

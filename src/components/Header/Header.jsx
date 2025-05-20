@@ -1,6 +1,7 @@
 import React, { use } from "react";
 import { NavLink } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
+import { Tooltip } from "react-tooltip";
 
 const Header = () => {
   const { user,logOut } = use(AuthContext);
@@ -62,9 +63,9 @@ const Header = () => {
             {li}
           </ul>
         </div>
-        <NavLink to="/" className="btn btn-ghost text-xl">
+        <NavLink to="/" className="font-bold text-xl md:text-3xl">
           <span>Roommate</span>
-          <span className="-ml-1.5 text-blue-500">Finder</span>
+          <span className="-ml-.5 text-blue-500">Finder</span>
         </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -73,7 +74,12 @@ const Header = () => {
       <div className="navbar-end">
         {user ? (
           <>
-            <img className="w-10 h-10 rounded-full" src={user.photoURL} alt="" />
+            <img 
+            className="w-10 h-10 rounded-full" 
+            src={user.photoURL}
+            data-tooltip-id="user-name-tooltip"
+            data-tooltip-content={user.displayName}
+            />
             <button
               onClick={() => {
                 logOut()
@@ -103,6 +109,7 @@ const Header = () => {
           </>
         )}
       </div>
+      <Tooltip id="user-name-tooltip" />
     </div>
   );
 };

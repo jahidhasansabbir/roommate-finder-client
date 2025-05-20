@@ -6,10 +6,12 @@ import "swiper/css/navigation";
 import firstSliderImg from "../../assets/slider-1.png";
 import secondSliderImg from "../../assets/slider.jpg";
 import thirdSliderImg from "../../assets/slider-3.jpg";
+import { Typewriter } from "react-simple-typewriter";
 
 const Slider = () => {
   return (
     <div className="w-11/12 mx-auto">
+      
       <Swiper
         modules={[Autoplay]}
         autoplay={{
@@ -44,6 +46,13 @@ const Slider = () => {
           />
         </SwiperSlide>
       </Swiper>
+      <h1 className="text-2xl text-blue-500 font-bold text-center">
+        <Typewriter
+          words={["Find Roommates", "Get Matched", "Move In"]}
+          loop={true}
+          cursor
+        />
+      </h1>
     </div>
   );
 };
