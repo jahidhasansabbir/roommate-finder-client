@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
             },
             {
                 path:'add-to-find-roommate',
-                Component: AddToFindRoommate
+                element:<PrivateRoute><AddToFindRoommate/></PrivateRoute>
             },
             {
                 path: 'browse-listing',
@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
             {
                 path: 'my-listing',
                 loader: ()=>fetch('http://localhost:3000/roommate'),
-                Component: MyLIsting,
+                element: <PrivateRoute><MyLIsting/></PrivateRoute>
             },
             {
                 path:'login',
@@ -50,7 +50,7 @@ export const router = createBrowserRouter([
             {
                 path: 'update/:id',
                 loader: ({params})=>fetch(`http://localhost:3000/update/${params.id}`),
-                Component: UpdatePost
+                element: <PrivateRoute><UpdatePost/></PrivateRoute>
             }
 
         ]

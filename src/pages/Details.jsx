@@ -63,7 +63,7 @@ const Details = () => {
         </div>
 
         <div className="card-actions justify-end pt-2">
-          <div className={user.email==email&& 'cursor-not-allowed'}>
+          <div className={user.email==email? 'cursor-not-allowed':''}>
             <button
               onClick={() => {
                 setCount(count + 1);

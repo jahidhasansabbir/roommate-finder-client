@@ -44,7 +44,7 @@ const UpdatePost = () => {
     })
 }
     return (
-        <div className="w-11/12 mx-auto">
+        <div className="w-11/12 mx-auto my-10">
       <form className="fieldset" onSubmit={handleUpdateRoommatePost}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex flex-col">
@@ -148,7 +148,7 @@ const UpdatePost = () => {
             placeholder="Write your description..."
           ></textarea>
         </div>
-        <button className="btn btn-neutral mt-4">Add</button>
+        <button className="btn btn-neutral mt-4">Update</button>
       </form>
     </div>
     );
