@@ -6,7 +6,7 @@ const Roommate = ({roommatePromise}) => {
     console.log(roommates);
     return (
         <div className='w-11/12 mx-auto my-6'>
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Featured Roommates Post</h2>
+            <h2 className="text-center text-3xl font-bold mb-6">Featured Roommates Post</h2>
            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4'>
             {
                 roommates.map(roommate=><RoommateCard key={roommate._id} roommate={roommate}></RoommateCard>)

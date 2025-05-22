@@ -33,7 +33,7 @@ const Register = () => {
       .catch((err) => console.log(err.message));
   };
   return (
-    <div className="card bg-base-100 my-8 w-full max-w-sm shrink-0 shadow-2xl mx-auto">
+    <div className="card bg-base-100 w-11/12 my-8 border border-base-300 max-w-sm shrink-0 shadow-2xl mx-auto">
       <div className="card-body">
         <h1 className="text-2xl font-bold md:text-4xl">Register now!</h1>
         <form onSubmit={handleSignUpWithEmail} className="fieldset">
@@ -65,7 +65,7 @@ const Register = () => {
             <a className="link link-hover">Forgot password?</a>
           </div>
           <p className="text-red-600">{error}</p>
-          <button className="btn btn-neutral mt-4">Login</button>
+          <button className="btn btn-neutral mt-4">Register</button>
         </form>
         <p className="text-center text-gray-400">or,</p>
         <button

@@ -46,7 +46,7 @@ const Slider = () => {
           />
         </SwiperSlide>
       </Swiper>
-      <h1 className="text-2xl text-blue-500 font-bold text-center">
+      <h1 className="text-2xl text-blue-500 font-bold my-4 text-center">
         <Typewriter
           words={["Find Roommates", "Get Matched", "Move In"]}
           loop={true}

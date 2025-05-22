@@ -20,7 +20,7 @@ const Login = () => {
    .catch(err=>err.message)
  }
   return (
-    <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mx-auto">
+    <div className="card bg-base-100 w-11/12 border my-10 border-base-300 max-w-sm shrink-0 shadow-2xl mx-auto">
      
       <div className="card-body">
         <h1 className="text-2xl font-bold md:text-4xl">Log in now!</h1>
