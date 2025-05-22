@@ -9,6 +9,7 @@ import Register from "../pages/Register";
 import Details from "../pages/Details";
 import PrivateRoute from "../provider/PrivateRoute";
 import UpdatePost from "../pages/UpdatePost";
+import Error from "../pages/Error";
 
 export const router = createBrowserRouter([
     {
@@ -53,5 +54,9 @@ export const router = createBrowserRouter([
             }
 
         ]
+    },
+    {
+        path:'*',
+        Component: Error
     }
 ])
