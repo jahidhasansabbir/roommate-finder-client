@@ -21,7 +21,7 @@ const RoommateCard = ({roommate}) => {
       <p className="text-sm">
         <span>Email:</span> {email}
       </p>
-      <NavLink to={`/details/${_id}`} className="btn">See more</NavLink>
+      <NavLink to={`/details/${_id}`} className="btn bg-blue-600 text-white">See more</NavLink>
     </div>
   );
 };
