@@ -66,8 +66,8 @@ const Header = () => {
           </ul>
         </div>
         <NavLink to="/" className="font-bold text-lg ml-1.5  md:text-3xl">
-          <span>Roommate</span>
-          <span className="-ml-.5 text-blue-500">Finder</span>
+          <span>RoomMate</span>
+          <span className="ml-2 text-blue-500">Finder</span>
         </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
