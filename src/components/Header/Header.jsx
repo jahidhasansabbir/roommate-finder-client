@@ -19,7 +19,8 @@ const Header = () => {
       <li>
         <NavLink to="/my-listing">My Listings</NavLink>
       </li>
-      <li>
+      {
+        !user && <><li>
         <NavLink to="/login" className="md:hidden">
           Log in
         </NavLink>
@@ -28,7 +29,8 @@ const Header = () => {
         <NavLink to="/register" className="md:hidden">
           Register
         </NavLink>
-      </li>
+      </li></>
+      }
     </>
   );
   return (
@@ -38,7 +40,7 @@ const Header = () => {
           <div
             tabIndex={0}
             role="button"
-            className="btn pl-0 btn-ghost lg:hidden"
+            className="btn px-0 md:pl-0 btn-ghost lg:hidden"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +65,7 @@ const Header = () => {
             {li}
           </ul>
         </div>
-        <NavLink to="/" className="font-bold text-xl md:text-3xl">
+        <NavLink to="/" className="font-bold text-lg ml-1.5  md:text-3xl">
           <span>Roommate</span>
           <span className="-ml-.5 text-blue-500">Finder</span>
         </NavLink>
@@ -75,7 +77,7 @@ const Header = () => {
         {user ? (
           <>
             <img 
-            className="w-10 h-10 rounded-full" 
+            className="w-8 h-8 md:w-10 md:h-10 rounded-full" 
             src={user.photoURL}
             data-tooltip-id="user-name-tooltip"
             data-tooltip-content={user.displayName}
@@ -87,7 +89,7 @@ const Header = () => {
                   console.log('logout');
                 })
               }}
-              className="btn text-white bg-blue-600 ml-2"
+              className="btn text-white btn-sm md:btn-md bg-blue-600 ml-1 md:ml-2"
             >
               Log out
             </button>

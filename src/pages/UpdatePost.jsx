@@ -16,6 +16,7 @@ const UpdatePost = () => {
     const lifeStyle = form.lifeStyle.value;
     const availability = form.availability.value;
     const description = form.description.value;
+    const contact = form.contact.value;
     const roommate = {
       title,
       location,
@@ -26,6 +27,7 @@ const UpdatePost = () => {
       displayName,
       email,
       description,
+      contact
     };
 
     fetch(`http://localhost:3000/update/${id}`, {
@@ -38,6 +40,7 @@ const UpdatePost = () => {
     .then(res=>res.json())
     .then(data=>{
         console.log(data);
+        form.reset()
     })
 }
     return (
@@ -124,6 +127,16 @@ const UpdatePost = () => {
               disabled
               className="input w-full"
               placeholder="Enter your email"
+            />
+          </div>
+               <div className="flex flex-col">
+            <label className="label">Contact Info</label>
+            <input
+              required
+              type="text"
+              name="contact"
+              className="input w-full"
+              placeholder="e.g., 012345678912"
             />
           </div>
         </div>
