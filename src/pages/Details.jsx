@@ -40,7 +40,7 @@ const Details = () => {
   },[id, likeCount])
 
   return (
-    <div className="card bg-base-100 text-base-content border border-base-200 shadow-xl max-w-xl w-full mx-auto transition-all">
+    <div className="card bg-base-100 text-base-content my-8 border border-base-200 shadow-xl max-w-xl w-full mx-auto transition-all">
       <div className="card-body space-y-2">
         <p className="text-center font-medium text-xl">
           {likeCount} people interested in

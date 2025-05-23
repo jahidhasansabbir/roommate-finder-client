@@ -9,8 +9,8 @@ const roommateHomePromise = fetch("https://roommate-finder-server-ashen.vercel.a
 );
 const Home = () => {
   return (
-    <div>
-      <div className="flex justify-between items-center w-11/12 shadow mx-auto border border-base-300 bg-base-300  py-2 px-3 rounded-full  -mt-1 mb-4">
+    <div className=" my-8">
+      <div className="flex justify-between items-center w-11/12 shadow mx-auto border border-base-300 bg-base-300  py-2 px-3 rounded-full -mt-1 mb-4">
         <h2 className="text-lg">Theme</h2>
         
 

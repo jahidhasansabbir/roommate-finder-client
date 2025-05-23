@@ -58,7 +58,7 @@ const AddToFindRoommate = () => {
       });
   };
   return (
-    <div className="w-11/12 mx-auto">
+    <div className="w-11/12 mx-auto my-8">
       <form className="fieldset" onSubmit={handleAddRoommate}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex flex-col">

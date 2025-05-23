@@ -10,7 +10,7 @@ const MyLIsting = () => {
         const [myListing, setMyListing] = useState(myListingRoommates) 
 
     return (
-        <div className="w-11/12 mx-auto">
+        <div className="w-11/12 mx-auto my-8">
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
