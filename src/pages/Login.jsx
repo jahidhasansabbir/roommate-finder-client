@@ -9,13 +9,11 @@ const Login = () => {
 
   const sweetAlert = () => {
     Swal.fire({
-      title: "Login Successful!",
-      text: "Welcome back!",
-      icon: "success",
-      timer: 1500,
-      timerProgressBar: true,
-      showConfirmButton: false,
-    });
+          icon: "success",
+          title: "Login Successful!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
     navigate('/')
   };
    const errorAlert=(msg)=>{

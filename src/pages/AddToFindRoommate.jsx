@@ -1,9 +1,20 @@
 import React, { use} from "react";
 import { AuthContext } from "../context/AuthContext";
+import Swal from "sweetalert2";
 
 const AddToFindRoommate = () => {
   const { user } = use(AuthContext);
   const { displayName, email } = user;
+  const sweetAlert = () => {
+      Swal.fire({
+        title: "Roommate Posted!",
+        text: "Your roommate post has been successfully added.",
+        icon: "success",
+        timer: 2000,
+        timerProgressBar: true,
+        showConfirmButton: false,
+      });
+    };
   const handleAddRoommate = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -39,6 +50,7 @@ const AddToFindRoommate = () => {
       .then((data) => {
         if (data.insertedId) {
           roommate._id = data.insertedId;
+          sweetAlert();
           form.reset();
         }
       });
@@ -145,6 +157,7 @@ const AddToFindRoommate = () => {
           <textarea
             className="textarea h-24 w-full"
             name="description"
+            required
             placeholder="Write your description..."
           ></textarea>
         </div>

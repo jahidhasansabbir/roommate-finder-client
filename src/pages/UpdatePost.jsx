@@ -1,12 +1,23 @@
-import React, { use } from 'react';
-import { AuthContext } from '../context/AuthContext';
-import { useParams } from 'react-router';
+import React, { use } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { useParams } from "react-router";
+import Swal from "sweetalert2";
 
 const UpdatePost = () => {
-    const {id} = useParams();
-    const { user } = use(AuthContext);
-    const { displayName, email } = user;
-    const handleUpdateRoommatePost = (e) => {
+  const { id } = useParams();
+  const { user } = use(AuthContext);
+  const { displayName, email } = user;
+  const sweetAlert = () => {
+    Swal.fire({
+      title: "Roommate Post Updated!",
+      text: "Your roommate post has been successfully updated.",
+      icon: "success",
+      timer: 2000,
+      timerProgressBar: true,
+      showConfirmButton: false,
+    });
+  };
+  const handleUpdateRoommatePost = (e) => {
     e.preventDefault();
     const form = e.target;
     const title = form.title.value;
@@ -27,24 +38,24 @@ const UpdatePost = () => {
       displayName,
       email,
       description,
-      contact
+      contact,
     };
 
     fetch(`http://localhost:3000/update/${id}`, {
-        method: 'PATCH',
-        headers:{
-            'Content-Type': 'application/json'
-        },
-        body:JSON.stringify(roommate)
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(roommate),
     })
-    .then(res=>res.json())
-    .then(data=>{
-        console.log(data);
-        form.reset()
-    })
-}
-    return (
-        <div className="w-11/12 mx-auto my-10">
+      .then((res) => res.json())
+      .then(() => {
+        sweetAlert()
+        form.reset();
+      });
+  };
+  return (
+    <div className="w-11/12 mx-auto my-10">
       <form className="fieldset" onSubmit={handleUpdateRoommatePost}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex flex-col">
@@ -129,7 +140,7 @@ const UpdatePost = () => {
               placeholder="Enter your email"
             />
           </div>
-               <div className="flex flex-col">
+          <div className="flex flex-col">
             <label className="label">Contact Info</label>
             <input
               required
@@ -145,13 +156,14 @@ const UpdatePost = () => {
           <textarea
             className="textarea h-24 w-full"
             name="description"
+            required
             placeholder="Write your description..."
           ></textarea>
         </div>
         <button className="btn btn-neutral mt-4">Update</button>
       </form>
     </div>
-    );
+  );
 };
 
 export default UpdatePost;

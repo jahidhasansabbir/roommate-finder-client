@@ -11,23 +11,21 @@ const Register = () => {
 
   const sweetAlert = () => {
     Swal.fire({
-      title: "Registration Successful!",
-      text: "You have successfully created your account.",
       icon: "success",
-      timer: 1500,
-      timerProgressBar: true,
+      title: "Registration Successful!",
       showConfirmButton: false,
+      timer: 1500,
     });
-    navigate('/')
+    navigate("/");
   };
-  const errorAlert=(msg)=>{
+  const errorAlert = (msg) => {
     Swal.fire({
       title: "Error!",
       text: `${msg}`,
       icon: "error",
       showConfirmButton: true,
     });
-  }
+  };
   const handleSignUpWithEmail = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -45,7 +43,7 @@ const Register = () => {
       createUserWithEmailPass(email, password)
         .then(() => {
           updateUserInfo(profileInfo);
-          sweetAlert()
+          sweetAlert();
         })
         .catch((err) => errorAlert(err.message));
     }
@@ -53,7 +51,7 @@ const Register = () => {
   const handleGoogleSignIn = () => {
     userGoogleSignIn()
       .then(() => {
-        sweetAlert()
+        sweetAlert();
       })
       .catch((err) => errorAlert(err.message));
   };
