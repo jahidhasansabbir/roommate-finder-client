@@ -30,7 +30,7 @@ const Details = () => {
   };
 
   useEffect(()=>{
-    fetch(`http://localhost:3000/count/${id}`, {
+    fetch(`https://roommate-finder-server-ashen.vercel.app/count/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

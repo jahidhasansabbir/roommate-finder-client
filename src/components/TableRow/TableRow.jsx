@@ -13,7 +13,7 @@ const TableRow = ({ roommate }) => {
       <td>{location}</td>
 
       <th>
-        <NavLink to={`/details/${_id}`} className="btn btn-ghost btn-xs">See more</NavLink>
+        <NavLink to={`/details/${_id}`} className="btn bg-blue-700 btn-xs w-18">See more</NavLink>
       </th>
     </tr>
   );

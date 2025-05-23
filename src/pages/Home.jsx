@@ -4,7 +4,7 @@ import HowItWorks from "../components/HowItWorks/HowItWorks";
 import Review from "../components/Review/Review";
 import Roommate from "../components/Roommate/Roommate";
 
-const roommateHomePromise = fetch("http://localhost:3000/home").then((res) =>
+const roommateHomePromise = fetch("https://roommate-finder-server-ashen.vercel.app/home").then((res) =>
   res.json()
 );
 const Home = () => {

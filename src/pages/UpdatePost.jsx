@@ -1,6 +1,6 @@
 import React, { use } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { useLoaderData, useParams } from "react-router";
+import { useLoaderData, useNavigate, useParams } from "react-router";
 import Swal from "sweetalert2";
 
 const UpdatePost = () => {
@@ -8,6 +8,7 @@ const UpdatePost = () => {
   const { id } = useParams();
   const { user } = use(AuthContext);
   const { displayName, email } = user;
+  const navigate = useNavigate();
   const sweetAlert = () => {
     Swal.fire({
       title: "Roommate Post Updated!",
@@ -53,7 +54,7 @@ const UpdatePost = () => {
       contact,
     };
 
-    fetch(`http://localhost:3000/update/${id}`, {
+    fetch(`https://roommate-finder-server-ashen.vercel.app/update/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -64,6 +65,7 @@ const UpdatePost = () => {
       .then(() => {
         sweetAlert();
         form.reset();
+        navigate('/my-listing')
       });
   };
   return (

@@ -27,13 +27,13 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'browse-listing',
-                loader: ()=>fetch('http://localhost:3000/roommate'),
+                loader: ()=>fetch('https://roommate-finder-server-ashen.vercel.app/roommate'),
                 hydrateFallbackElement:<Loading></Loading>,
                 Component: BrowseListing
             },
             {
                 path: 'my-listing',
-                loader: ()=>fetch('http://localhost:3000/roommate'),
+                loader: ()=>fetch('https://roommate-finder-server-ashen.vercel.app/roommate'),
                 element: <PrivateRoute><MyLIsting/></PrivateRoute>,
                 hydrateFallbackElement:<Loading></Loading>
             },
@@ -47,13 +47,13 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'details/:id',
-                loader: ({params})=>fetch(`http://localhost:3000/details/${params.id}`),
+                loader: ({params})=>fetch(`https://roommate-finder-server-ashen.vercel.app/details/${params.id}`),
                 element: <PrivateRoute><Details/></PrivateRoute>,
                 hydrateFallbackElement:<Loading></Loading>
             },
             {
                 path: 'update/:id',
-                loader: ()=>fetch("http://localhost:3000/roommate"),
+                loader: ()=>fetch("https://roommate-finder-server-ashen.vercel.app/roommate"),
                 hydrateFallbackElement:<Loading></Loading>,
                 element: <PrivateRoute><UpdatePost/></PrivateRoute>
             }
