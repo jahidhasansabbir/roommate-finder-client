@@ -1,41 +1,75 @@
 import React, { use } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { NavLink } from "react-router";
+import { Navigate, NavLink, useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 const Login = () => {
-    const {userSignIn, userGoogleSignIn} = use(AuthContext)
+  const { userSignIn, userGoogleSignIn } = use(AuthContext);
+  const navigate = useNavigate();
 
- const handleLoginWithEmail = e =>{
+  const sweetAlert = () => {
+    Swal.fire({
+      title: "Login Successful!",
+      text: "Welcome back!",
+      icon: "success",
+      timer: 1500,
+      timerProgressBar: true,
+      showConfirmButton: false,
+    });
+    navigate('/')
+  };
+   const errorAlert=(msg)=>{
+      Swal.fire({
+        title: "Error!",
+        text: `${msg}`,
+        icon: "error",
+        showConfirmButton: true,
+      });
+    }
+  const handleLoginWithEmail = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
     userSignIn(email, password)
-    .then(result=>console.log('User log in successfully', result))
-    .catch(err=>console.log(err.message))
- }
- const handleGoogleSignIn = ()=>{
-   return userGoogleSignIn()
-   .then(result => console.log('successful', result))
-   .catch(err=>err.message)
- }
+      .then(() => {
+        sweetAlert();
+      })
+      .catch((err) => errorAlert(err.message));
+  };
+  const handleGoogleSignIn = () => {
+    return userGoogleSignIn()
+      .then(() => sweetAlert())
+      .catch((err) => errorAlert(err.message));
+  };
   return (
     <div className="card bg-base-100 w-11/12 border my-10 border-base-300 max-w-sm shrink-0 shadow-2xl mx-auto">
-     
       <div className="card-body">
         <h1 className="text-2xl font-bold md:text-4xl">Log in now!</h1>
         <form onSubmit={handleLoginWithEmail} className="fieldset">
           <label className="label">Email</label>
-          <input type="email" name="email" className="input" placeholder="Email" />
+          <input
+            type="email"
+            name="email"
+            className="input"
+            placeholder="Email"
+          />
           <label className="label">Password</label>
-          <input type="password" name="password" className="input" placeholder="Password" />
+          <input
+            type="password"
+            name="password"
+            className="input"
+            placeholder="Password"
+          />
           <div>
             <a className="link link-hover">Forgot password?</a>
           </div>
           <button className="btn btn-neutral mt-4">Login</button>
         </form>
         <p className="text-center text-gray-400">or,</p>
-        <button onClick={handleGoogleSignIn} className="btn bg-white text-black border-[#e5e5e5]">
+        <button
+          onClick={handleGoogleSignIn}
+          className="btn bg-white text-black border-[#e5e5e5]"
+        >
           <svg
             aria-label="Google logo"
             width="16"
@@ -66,7 +100,12 @@ const Login = () => {
           Login with Google
         </button>
       </div>
-       <p className="text-center pb-4">Haven't an account? <NavLink to='/register'><span className="text-blue-700 hover:underline">Register</span></NavLink></p>
+      <p className="text-center pb-4">
+        Haven't an account?{" "}
+        <NavLink to="/register">
+          <span className="text-blue-700 hover:underline">Register</span>
+        </NavLink>
+      </p>
     </div>
   );
 };

@@ -1,11 +1,33 @@
 import React, { use, useState } from "react";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { userGoogleSignIn, createUserWithEmailPass, updateUserInfo } =
     use(AuthContext);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const sweetAlert = () => {
+    Swal.fire({
+      title: "Registration Successful!",
+      text: "You have successfully created your account.",
+      icon: "success",
+      timer: 1500,
+      timerProgressBar: true,
+      showConfirmButton: false,
+    });
+    navigate('/')
+  };
+  const errorAlert=(msg)=>{
+    Swal.fire({
+      title: "Error!",
+      text: `${msg}`,
+      icon: "error",
+      showConfirmButton: true,
+    });
+  }
   const handleSignUpWithEmail = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -23,14 +45,17 @@ const Register = () => {
       createUserWithEmailPass(email, password)
         .then(() => {
           updateUserInfo(profileInfo);
+          sweetAlert()
         })
-        .catch((err) => console.log(err.message));
+        .catch((err) => errorAlert(err.message));
     }
   };
   const handleGoogleSignIn = () => {
     userGoogleSignIn()
-      .then(() => {})
-      .catch((err) => console.log(err.message));
+      .then(() => {
+        sweetAlert()
+      })
+      .catch((err) => errorAlert(err.message));
   };
   return (
     <div className="card bg-base-100 w-11/12 my-8 border border-base-300 max-w-sm shrink-0 shadow-2xl mx-auto">
