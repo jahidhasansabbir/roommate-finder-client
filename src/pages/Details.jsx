@@ -1,5 +1,4 @@
-import React, { use, useState } from "react";
-import { FaHeart, FaRegHeart } from "react-icons/fa";
+import React, { use, useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 
@@ -23,24 +22,22 @@ const Details = () => {
   } = roommatePost;
 
   const [likeCount, setLikeCount] = useState(parseInt(count));
-  // useEffect(() => {
-   
-  // }, [id, likeCount]);
-  console.log(likeCount);
+
   const handleLike = () => {
     setLiked(true);
-   
-    
-     fetch(`http://localhost:3000/count/${id}`, {
+     const newCount = parseInt(likeCount) + 1;
+     setLikeCount(newCount);
+  };
+
+  useEffect(()=>{
+    fetch(`http://localhost:3000/count/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({count:likeCount}),
     })
-     const newCount = parseInt(likeCount) + 1;
-     setLikeCount(newCount);
-  };
+  },[id, likeCount])
 
   return (
     <div className="card bg-base-100 text-base-content border border-base-200 shadow-xl max-w-xl w-full mx-auto transition-all">
