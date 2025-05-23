@@ -4,13 +4,13 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
+
 const firebaseConfig = {
-  apiKey: "AIzaSyBhgnu_EHy_fTNY4i0hVHb4Wu6MHBrHdMU",
-  authDomain: "roommate-finderz.firebaseapp.com",
-  projectId: "roommate-finderz",
-  storageBucket: "roommate-finderz.firebasestorage.app",
-  messagingSenderId: "92766628120",
-  appId: "1:92766628120:web:42b7d1aacddd318583166d"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase
