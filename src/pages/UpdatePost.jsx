@@ -1,11 +1,10 @@
 import React, { use } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { useParams } from "react-router";
+import { useLoaderData, useParams } from "react-router";
 import Swal from "sweetalert2";
 
-const roommatePromise = fetch('http://localhost:3000/roommate').then(res=>res.json())
 const UpdatePost = () => {
-  const post = use(roommatePromise);
+  const post = useLoaderData();
   const { id } = useParams();
   const { user } = use(AuthContext);
   const { displayName, email } = user;
@@ -19,7 +18,17 @@ const UpdatePost = () => {
       showConfirmButton: false,
     });
   };
-  const {title, location, rentAmount, roomType, lifeStyle, availability, description, contact} = post.find(p=>p._id==id);
+  const {
+    title,
+    location,
+    rentAmount,
+    roomType,
+    lifeStyle,
+    availability,
+    description,
+    contact,
+  } = post.find((p) => p._id == id);
+
   const handleUpdateRoommatePost = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -53,7 +62,7 @@ const UpdatePost = () => {
     })
       .then((res) => res.json())
       .then(() => {
-        sweetAlert()
+        sweetAlert();
         form.reset();
       });
   };
@@ -99,7 +108,11 @@ const UpdatePost = () => {
 
           <div className="flex flex-col">
             <label className="label">Room Type</label>
-            <select className="select w-full" defaultValue={roomType}  name="roomType">
+            <select
+              className="select w-full"
+              defaultValue={roomType}
+              name="roomType"
+            >
               <option>Shared</option>
               <option>Single</option>
             </select>
@@ -107,7 +120,11 @@ const UpdatePost = () => {
 
           <div className="flex flex-col">
             <label className="label">Lifestyle Preferences</label>
-            <select className="select w-full" defaultValue={lifeStyle} name="lifeStyle">
+            <select
+              className="select w-full"
+              defaultValue={lifeStyle}
+              name="lifeStyle"
+            >
               <option>Pets</option>
               <option>Smoking</option>
               <option>None-smoker</option>
@@ -117,7 +134,11 @@ const UpdatePost = () => {
 
           <div className="flex flex-col">
             <label className="label">Availability</label>
-            <select className="select w-full" defaultValue={availability} name="availability">
+            <select
+              className="select w-full"
+              defaultValue={availability}
+              name="availability"
+            >
               <option>Available</option>
               <option>not available</option>
             </select>

@@ -3,7 +3,6 @@ import RoommateCard from '../RoommateCard/RoommateCard';
 
 const Roommate = ({roommateHomePromise}) => {
     const roommates = use(roommateHomePromise)
-    console.log(roommates);
     return (
         <div className='w-11/12 mx-auto my-6'>
             <h2 className="text-center text-3xl font-bold mb-6">Featured Roommates Post</h2>

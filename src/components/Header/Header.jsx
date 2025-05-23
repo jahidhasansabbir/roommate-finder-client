@@ -2,6 +2,7 @@ import React, { use } from "react";
 import { NavLink } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
 import { Tooltip } from "react-tooltip";
+import Swal from "sweetalert2";
 
 const Header = () => {
   const { user,logOut } = use(AuthContext);
@@ -86,7 +87,12 @@ const Header = () => {
               onClick={() => {
                 logOut()
                 .then(()=>{
-                  console.log('logout');
+                  Swal.fire({
+                            icon: "success",
+                            title: "Log out Successful!",
+                            showConfirmButton: false,
+                            timer: 1500,
+                          });
                 })
               }}
               className="btn text-white btn-sm md:btn-md bg-blue-600 ml-1 md:ml-2"

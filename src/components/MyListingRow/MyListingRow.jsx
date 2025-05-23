@@ -17,7 +17,6 @@ const MyListingRow = ({ roommate, setMyListing, myListing }) => {
       if (result.isConfirmed) {
         const remainingMyListingRoommate = myListing.filter(singleRoommate=>singleRoommate._id!=id)
         setMyListing(remainingMyListingRoommate)
-        console.log(remainingMyListingRoommate);
         fetch(`http://localhost:3000/delete/${id}`, {
           method: "DELETE",
         })

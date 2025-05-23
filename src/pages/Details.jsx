@@ -1,15 +1,13 @@
 import React, { use, useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useParams } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 
 const Details = () => {
   const roommatePost = useLoaderData();
   const { user } = use(AuthContext);
-  console.log(roommatePost);
+  const { id } = useParams();
   const [liked, setLiked] = useState(false);
-  const [count, setCount] = useState(0);
-
   const {
     displayName,
     title,
@@ -21,12 +19,34 @@ const Details = () => {
     availability,
     description,
     contact,
+    count
   } = roommatePost;
+
+  const [likeCount, setLikeCount] = useState(parseInt(count));
+  // useEffect(() => {
+   
+  // }, [id, likeCount]);
+  console.log(likeCount);
+  const handleLike = () => {
+    setLiked(true);
+   
+    
+     fetch(`http://localhost:3000/count/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({count:likeCount}),
+    })
+     const newCount = parseInt(likeCount) + 1;
+     setLikeCount(newCount);
+  };
+
   return (
     <div className="card bg-base-100 text-base-content border border-base-200 shadow-xl max-w-xl w-full mx-auto transition-all">
       <div className="card-body space-y-2">
         <p className="text-center font-medium text-xl">
-          {count} people interested in
+          {likeCount} people interested in
         </p>
         <div className="flex justify-between items-start">
           <h2 className="card-title text-2xl">{title}</h2>
@@ -63,12 +83,9 @@ const Details = () => {
         </div>
 
         <div className="card-actions justify-end pt-2">
-          <div className={user.email==email? 'cursor-not-allowed':''}>
+          <div className={user.email == email ? "cursor-not-allowed" : ""}>
             <button
-              onClick={() => {
-                setCount(count + 1);
-                setLiked(true);
-              }}
+              onClick={handleLike}
               className="btn bg-blue-700 text-white btn-sm"
               disabled={user.email == email}
             >

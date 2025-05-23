@@ -26,6 +26,7 @@ const AddToFindRoommate = () => {
     const availability = form.availability.value;
     const description = form.description.value;
     const contact = form.contact.value;
+    const count = 0;
     const roommate = {
       title,
       location,
@@ -36,7 +37,8 @@ const AddToFindRoommate = () => {
       displayName,
       email,
       description,
-      contact
+      contact,
+      count
     };
 
     fetch("http://localhost:3000/roommate", {

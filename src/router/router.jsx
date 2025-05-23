@@ -10,6 +10,7 @@ import Details from "../pages/Details";
 import PrivateRoute from "../provider/PrivateRoute";
 import UpdatePost from "../pages/UpdatePost";
 import Error from "../pages/Error";
+import Loading from "../pages/Loading";
 
 export const router = createBrowserRouter([
     {
@@ -27,12 +28,14 @@ export const router = createBrowserRouter([
             {
                 path: 'browse-listing',
                 loader: ()=>fetch('http://localhost:3000/roommate'),
+                hydrateFallbackElement:<Loading></Loading>,
                 Component: BrowseListing
             },
             {
                 path: 'my-listing',
                 loader: ()=>fetch('http://localhost:3000/roommate'),
-                element: <PrivateRoute><MyLIsting/></PrivateRoute>
+                element: <PrivateRoute><MyLIsting/></PrivateRoute>,
+                hydrateFallbackElement:<Loading></Loading>
             },
             {
                 path:'login',
@@ -45,11 +48,13 @@ export const router = createBrowserRouter([
             {
                 path: 'details/:id',
                 loader: ({params})=>fetch(`http://localhost:3000/details/${params.id}`),
-                element: <PrivateRoute><Details/></PrivateRoute>
+                element: <PrivateRoute><Details/></PrivateRoute>,
+                hydrateFallbackElement:<Loading></Loading>
             },
             {
                 path: 'update/:id',
-                loader: ({params})=>fetch(`http://localhost:3000/update/${params.id}`),
+                loader: ()=>fetch("http://localhost:3000/roommate"),
+                hydrateFallbackElement:<Loading></Loading>,
                 element: <PrivateRoute><UpdatePost/></PrivateRoute>
             }
 
