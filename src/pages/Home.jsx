@@ -4,7 +4,7 @@ import HowItWorks from "../components/HowItWorks/HowItWorks";
 import Review from "../components/Review/Review";
 import Roommate from "../components/Roommate/Roommate";
 
-const roommatePromise = fetch("http://localhost:3000/roommate").then((res) =>
+const roommateHomePromise = fetch("http://localhost:3000/home").then((res) =>
   res.json()
 );
 const Home = () => {
@@ -50,7 +50,7 @@ const Home = () => {
         </label>
       </div>
       <Slider></Slider>
-      <Roommate roommatePromise={roommatePromise}></Roommate>
+      <Roommate roommateHomePromise={roommateHomePromise}></Roommate>
       {/* extra sections */}
       <HowItWorks></HowItWorks>
       <Review></Review>

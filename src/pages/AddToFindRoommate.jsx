@@ -105,6 +105,7 @@ const AddToFindRoommate = () => {
             <select className="select w-full" name="lifeStyle">
               <option>Pets</option>
               <option>Smoking</option>
+              <option>Non-smoker</option>
               <option>Night Owl</option>
             </select>
           </div>
@@ -112,8 +113,8 @@ const AddToFindRoommate = () => {
           <div className="flex flex-col">
             <label className="label">Availability</label>
             <select className="select w-full" name="availability">
-              <option>Available</option>
-              <option>Not available</option>
+              <option>available</option>
+              <option>not available</option>
             </select>
           </div>
 

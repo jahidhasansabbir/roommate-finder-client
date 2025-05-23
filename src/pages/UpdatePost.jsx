@@ -3,7 +3,9 @@ import { AuthContext } from "../context/AuthContext";
 import { useParams } from "react-router";
 import Swal from "sweetalert2";
 
+const roommatePromise = fetch('http://localhost:3000/roommate').then(res=>res.json())
 const UpdatePost = () => {
+  const post = use(roommatePromise);
   const { id } = useParams();
   const { user } = use(AuthContext);
   const { displayName, email } = user;
@@ -17,6 +19,7 @@ const UpdatePost = () => {
       showConfirmButton: false,
     });
   };
+  const {title, location, rentAmount, roomType, lifeStyle, availability, description, contact} = post.find(p=>p._id==id);
   const handleUpdateRoommatePost = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -62,6 +65,7 @@ const UpdatePost = () => {
             <label className="label">Title</label>
             <input
               required
+              defaultValue={title}
               type="text"
               name="title"
               className="input w-full"
@@ -73,6 +77,7 @@ const UpdatePost = () => {
             <label className="label">Location</label>
             <input
               required
+              defaultValue={location}
               type="text"
               name="location"
               className="input w-full"
@@ -84,6 +89,7 @@ const UpdatePost = () => {
             <label className="label">Rent Amount</label>
             <input
               required
+              defaultValue={rentAmount}
               type="text"
               name="rentAmount"
               className="input w-full"
@@ -93,26 +99,27 @@ const UpdatePost = () => {
 
           <div className="flex flex-col">
             <label className="label">Room Type</label>
-            <select className="select w-full" name="roomType">
-              <option>Single</option>
+            <select className="select w-full" defaultValue={roomType}  name="roomType">
               <option>Shared</option>
+              <option>Single</option>
             </select>
           </div>
 
           <div className="flex flex-col">
             <label className="label">Lifestyle Preferences</label>
-            <select className="select w-full" name="lifeStyle">
+            <select className="select w-full" defaultValue={lifeStyle} name="lifeStyle">
               <option>Pets</option>
               <option>Smoking</option>
+              <option>None-smoker</option>
               <option>Night Owl</option>
             </select>
           </div>
 
           <div className="flex flex-col">
             <label className="label">Availability</label>
-            <select className="select w-full" name="availability">
+            <select className="select w-full" defaultValue={availability} name="availability">
               <option>Available</option>
-              <option>Not available</option>
+              <option>not available</option>
             </select>
           </div>
 
@@ -144,6 +151,7 @@ const UpdatePost = () => {
             <label className="label">Contact Info</label>
             <input
               required
+              defaultValue={contact}
               type="text"
               name="contact"
               className="input w-full"
@@ -157,6 +165,7 @@ const UpdatePost = () => {
             className="textarea h-24 w-full"
             name="description"
             required
+            defaultValue={description}
             placeholder="Write your description..."
           ></textarea>
         </div>

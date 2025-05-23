@@ -2,9 +2,8 @@ import React from "react";
 import { NavLink } from "react-router";
 import Swal from "sweetalert2";
 
-const MyListingRow = ({ roommate }) => {
+const MyListingRow = ({ roommate, setMyListing, myListing }) => {
   const { _id, displayName, title, location, email } = roommate;
-
   const handleDeletePost = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -16,6 +15,9 @@ const MyListingRow = ({ roommate }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
+        const remainingMyListingRoommate = myListing.filter(singleRoommate=>singleRoommate._id!=id)
+        setMyListing(remainingMyListingRoommate)
+        console.log(remainingMyListingRoommate);
         fetch(`http://localhost:3000/delete/${id}`, {
           method: "DELETE",
         })

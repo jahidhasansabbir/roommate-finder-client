@@ -5,7 +5,7 @@ import TableRow from "../components/TableRow/TableRow";
 const BrowseListing = () => {
   const roommates = useLoaderData();
   return (
-    <div className="w-11/12 mx-auto">
+    <div className="w-11/12 mx-auto my-6">
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

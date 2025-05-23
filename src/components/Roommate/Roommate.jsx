@@ -1,8 +1,8 @@
 import React, { use } from 'react';
 import RoommateCard from '../RoommateCard/RoommateCard';
 
-const Roommate = ({roommatePromise}) => {
-    const roommates = use(roommatePromise)
+const Roommate = ({roommateHomePromise}) => {
+    const roommates = use(roommateHomePromise)
     console.log(roommates);
     return (
         <div className='w-11/12 mx-auto my-6'>

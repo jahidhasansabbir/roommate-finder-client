@@ -1,4 +1,4 @@
-import React, { use} from 'react';
+import React, { use, useState} from 'react';
 import { useLoaderData } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 import MyListingRow from '../components/MyListingRow/MyListingRow';
@@ -7,6 +7,7 @@ const MyLIsting = () => {
     const roommates = useLoaderData();
     const {user} = use(AuthContext)
         const myListingRoommates = roommates.filter(roommate=>roommate.email==user.email)
+        const [myListing, setMyListing] = useState(myListingRoommates) 
 
     return (
         <div className="w-11/12 mx-auto">
@@ -23,8 +24,8 @@ const MyLIsting = () => {
             </tr>
           </thead>
           <tbody>
-            {myListingRoommates.map((roommate) => (
-              <MyListingRow key={roommate._id} roommate={roommate}></MyListingRow>
+            {myListing.map((roommate) => (
+              <MyListingRow key={roommate._id} setMyListing={setMyListing} myListing={myListing} roommate={roommate}></MyListingRow>
             ))}
           </tbody>
         </table>
