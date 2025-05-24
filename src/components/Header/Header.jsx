@@ -22,7 +22,7 @@ const Header = () => {
       </li>
       {
         !user && <><li>
-        <NavLink to="/login" className="md:hidden">
+        <NavLink to="/login" className="btn text-white btn-sm md:btn-md bg-blue-600 ml-1 md:ml-2">
           Log in
         </NavLink>
       </li>
@@ -104,13 +104,13 @@ const Header = () => {
           <>
             <NavLink
               to="/login"
-              className="btn bg-blue-600 ml-2 hidden md:flex"
+             className="btn text-white btn-sm md:btn-md bg-blue-600 ml-1 md:ml-2"
             >
               Log in
             </NavLink>
             <NavLink
               to="/register"
-              className="btn bg-blue-600 ml-2 hidden md:flex"
+             className="btn text-white btn-sm md:btn-md bg-blue-600 ml-1 md:ml-2"
             >
               Register
             </NavLink>
