@@ -158,7 +158,7 @@ nodemon index.js
 Your backend should now be running, typically at:
 
 [http://localhost:3000](http://localhost:3000)
- **Important:** Make sure nodemon is install globally in your machine.
+> **Important:** Make sure nodemon is install globally in your machine.
 
 ---
 
