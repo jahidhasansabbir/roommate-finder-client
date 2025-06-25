@@ -71,6 +71,26 @@ Welcome to **Roommate Finder** — a web application designed to help people fin
 
 ---
 
+## 📦 Dependencies
+
+This project uses the following core libraries and tools:
+
+| Package                    | Version     | Description                                                  |
+|----------------------------|-------------|--------------------------------------------------------------|
+| `@tailwindcss/vite`        | ^4.1.7      | Tailwind CSS integration with Vite                           |
+| `firebase`                 | ^11.7.3     | Firebase SDK for authentication and cloud services           |
+| `react`                    | ^19.1.0     | Core library for building user interfaces                    |
+| `react-dom`                | ^19.1.0     | React package for working with the DOM                       |
+| `react-icons`              | ^5.5.0      | Popular icon packs as React components                       |
+| `react-router`             | ^7.6.0      | Declarative routing for React apps                           |
+| `react-simple-typewriter` | ^5.0.1      | Simple typewriter effect for React                           |
+| `react-tooltip`            | ^5.28.1     | Lightweight tooltip component for React                      |
+| `sweetalert2`              | ^11.21.2    | Beautiful and customizable popup alerts                      |
+| `swiper`                   | ^11.2.6     | Mobile-friendly slider/swiper component                      |
+| `tailwindcss`              | ^4.1.7      | Utility-first CSS framework for rapid UI development         |
+
+---
+
 ## 🧰 Installation & Setup Guide
 
 ### 1. Clone the Repository
