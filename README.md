@@ -71,5 +71,96 @@ Welcome to **Roommate Finder** — a web application designed to help people fin
 
 ---
 
+## 🧰 Installation & Setup Guide
+
+### 1. Clone the Repository
+
+```bash
+git https://github.com/jahidhasansabbir/roommate-finder-client.git
+cd roommate-finder-client
+```
+
+### 2. Install Dependencies
+
+Make sure you have Node.js installed, then run:
+
+```bash
+npm install
+```
+
+### 3. Create `.env.local` File
+
+At the root of your project, create a `.env.local` file and add the following Firebase environment variables:
+
+```env
+VITE_apiKey=your_api_key
+VITE_authDomain=your_auth_domain
+VITE_projectId=your_project_id
+VITE_storageBucket=your_storage_bucket
+VITE_messagingSenderId=your_messaging_sender_id
+VITE_appId=your_app_id
+```
+
+> ⚠️ **Important:** Do not commit `.env.local` to version control. Make sure it is listed in your `.gitignore` file.
+
+### 4. Run the Application Locally
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Then open your browser and visit:
+
+[http://localhost:5173](http://localhost:5173)  
+(or the port provided in your terminal)
+
+---
+
+## 🧰 Backend Setup Guide
+
+🔗 **Backend Server:** [Repository](https://github.com/jahidhasansabbir/roommate-finder-server#)
+
+### 1. Clone the Repository
+
+```bash
+git https://github.com/jahidhasansabbir/roommate-finder-server.git
+cd roommate-finder-server
+```
+
+### 2. Install Dependencies
+
+Make sure you have Node.js installed, then run:
+
+```bash
+npm install
+```
+
+### 3. Create `.env` File
+
+At the root of your backend project, create a `.env` file and add the following MongoDB credentials:
+
+```env
+DB_USER=your_mongodb_user_name
+DB_PASS=your_mongodb_password
+```
+
+> ⚠️ **Important:** Do not commit `.env` to version control. Make sure it is listed in your `.gitignore` file.
+
+### 4. Start the Server
+
+Run the backend server:
+
+```bash
+nodemon index.js
+```
+Your backend should now be running, typically at:
+
+[http://localhost:3000](http://localhost:3000)
+ **Important:** Make sure nodemon is install globally in your machine.
+
+---
+
 
 Thank you for visiting! 🎉
