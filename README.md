@@ -120,7 +120,7 @@ Then open your browser and visit:
 
 ## 🧰 Backend Setup Guide
 
-🔗 **Backend Server:** [Repository](https://github.com/jahidhasansabbir/roommate-finder-server#)
+🔗 **Backend Server:** [roommate-finder-server](https://github.com/jahidhasansabbir/roommate-finder-server#)
 
 ### 1. Clone the Repository
 
