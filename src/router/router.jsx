@@ -11,6 +11,7 @@ import PrivateRoute from "../provider/PrivateRoute";
 import UpdatePost from "../pages/UpdatePost";
 import Error from "../pages/Error";
 import Loading from "../pages/Loading";
+import AboutUs from "../pages/AboutUs";
 
 export const router = createBrowserRouter([
     {
@@ -27,13 +28,13 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'browse-listing',
-                loader: ()=>fetch('https://roommate-finder-server-ashen.vercel.app/roommate'),
+                loader: ()=>fetch(`${import.meta.env.VITE_server}/roommate`),
                 hydrateFallbackElement:<Loading></Loading>,
                 Component: BrowseListing
             },
             {
                 path: 'my-listing',
-                loader: ()=>fetch('https://roommate-finder-server-ashen.vercel.app/roommate'),
+                loader: ()=>fetch(`${import.meta.env.VITE_server}/roommate`),
                 element: <PrivateRoute><MyLIsting/></PrivateRoute>,
                 hydrateFallbackElement:<Loading></Loading>
             },
@@ -46,14 +47,18 @@ export const router = createBrowserRouter([
                 Component: Register
             },
             {
+                path: 'about-us',
+                Component: AboutUs
+            },
+            {
                 path: 'details/:id',
-                loader: ({params})=>fetch(`https://roommate-finder-server-ashen.vercel.app/details/${params.id}`),
+                loader: ({params})=>fetch(`${import.meta.env.VITE_server}/details/${params.id}`),
                 element: <PrivateRoute><Details/></PrivateRoute>,
                 hydrateFallbackElement:<Loading></Loading>
             },
             {
                 path: 'update/:id',
-                loader: ()=>fetch("https://roommate-finder-server-ashen.vercel.app/roommate"),
+                loader: ()=>fetch(`${import.meta.env.VITE_server}/roommate`),
                 hydrateFallbackElement:<Loading></Loading>,
                 element: <PrivateRoute><UpdatePost/></PrivateRoute>
             }

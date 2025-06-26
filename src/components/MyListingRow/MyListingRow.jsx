@@ -17,7 +17,7 @@ const MyListingRow = ({ roommate, setMyListing, myListing }) => {
       if (result.isConfirmed) {
         const remainingMyListingRoommate = myListing.filter(singleRoommate=>singleRoommate._id!=id)
         setMyListing(remainingMyListingRoommate)
-        fetch(`https://roommate-finder-server-ashen.vercel.app/delete/${id}`, {
+        fetch(`${import.meta.env.VITE_server}/delete/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

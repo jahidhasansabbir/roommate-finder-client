@@ -41,7 +41,7 @@ const AddToFindRoommate = () => {
       count
     };
 
-    fetch("https://roommate-finder-server-ashen.vercel.app/roommate", {
+    fetch(`${import.meta.env.VITE_server}/roommate`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

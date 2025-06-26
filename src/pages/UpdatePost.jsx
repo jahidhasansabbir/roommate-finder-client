@@ -54,7 +54,7 @@ const UpdatePost = () => {
       contact,
     };
 
-    fetch(`https://roommate-finder-server-ashen.vercel.app/update/${id}`, {
+    fetch(`${import.meta.env.VITE_server}/update/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
