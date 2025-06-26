@@ -12,6 +12,7 @@ import UpdatePost from "../pages/UpdatePost";
 import Error from "../pages/Error";
 import Loading from "../pages/Loading";
 import AboutUs from "../pages/AboutUs";
+import Support from "../pages/Support";
 
 export const router = createBrowserRouter([
     {
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([
             {
                 path: 'about-us',
                 Component: AboutUs
+            },
+            {
+                path: 'support',
+                Component: Support
             },
             {
                 path: 'details/:id',
