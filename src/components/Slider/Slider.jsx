@@ -10,49 +10,52 @@ import { Typewriter } from "react-simple-typewriter";
 
 const Slider = () => {
   return (
-    <div className="w-11/12 mx-auto">
-      
-      <Swiper
-        modules={[Autoplay]}
-        autoplay={{
-          delay: 3500,
-          disableOnInteraction: false,
-        }}
-        loop={true}
-        spaceBetween={30}
-      >
-        <SwiperSlide>
-          {" "}
-          <img
-            className="h-[180px] w-full md:h-[350px] rounded-lg object-cover"
-            src={firstSliderImg}
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <img
-            className="h-[180px] w-full md:h-[350px] rounded-lg object-cover"
-            src={secondSliderImg}
-            alt=""
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          {" "}
-          <img
-            className="h-[180px] w-full md:h-[350px] rounded-lg object-cover"
-            src={thirdSliderImg}
-            alt=""
-          />
-        </SwiperSlide>
-      </Swiper>
-      <h1 className="text-2xl text-blue-500 font-bold my-4 text-center">
-        <Typewriter
-          words={["Find Roommates", "Get Matched", "Move In"]}
+    <div className="w-11/12 mx-auto overflow-hidden">
+      <div className=" h-[60vh]">
+        <Swiper
+          modules={[Autoplay]}
+          autoplay={{
+            delay: 3500,
+            disableOnInteraction: false,
+          }}
           loop={true}
-          cursor
-        />
-      </h1>
+          spaceBetween={30}
+          className="h-full  rounded-2xl"
+        >
+          <SwiperSlide>
+            <img
+              className="w-full h-full object-cover"
+              src={firstSliderImg}
+              alt=""
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              className="w-full h-full object-cover"
+              src={secondSliderImg}
+              alt=""
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              className="w-full h-full object-cover"
+              src={thirdSliderImg}
+              alt=""
+            />
+          </SwiperSlide>
+        </Swiper>
+      </div>
+
+      {/* Text over slider */}
+      <div className="flex bg-transparent items-center justify-center">
+        <h1 className="text-2xl md:text-4xl text-blue-500 mt-4 font-bold text-center px-4">
+          <Typewriter
+            words={["Find Roommates", "Get Matched", "Move In"]}
+            loop={true}
+            cursor
+          />
+        </h1>
+      </div>
     </div>
   );
 };
