@@ -30,7 +30,7 @@ const AddToFindRoommate = () => {
     const roommate = {
       title,
       location,
-      rentAmount,
+      rentAmount: parseFloat(rentAmount),
       roomType,
       lifeStyle,
       availability,

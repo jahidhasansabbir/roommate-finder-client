@@ -11,9 +11,11 @@ const Header = () => {
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
-        <NavLink to="/add-to-find-roommate">Add to Find Roommate</NavLink>
+      {
+        user &&  <li>
+        <NavLink to="/dashboard">Dashboard</NavLink>
       </li>
+       }
       <li>
         <NavLink to="/browse-listing">Browse Listing</NavLink>
       </li>
@@ -23,9 +25,8 @@ const Header = () => {
       <li>
         <NavLink to="/support">Support</NavLink>
       </li>
-      <li>
-        <NavLink to="/my-listing">My Listings</NavLink>
-      </li>
+
+       
       {/* {!user && (
         <>
           <li>
@@ -45,6 +46,7 @@ const Header = () => {
       )} */}
     </>
   );
+  
   return (
     <div className="sticky z-50 top-0 bg-base-100/80 backdrop-blur-sm shadow-sm">
       <div className="w-11/12 navbar justify-between mx-auto  p-0 ">

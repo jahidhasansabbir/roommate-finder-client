@@ -13,65 +13,107 @@ import Error from "../pages/Error";
 import Loading from "../pages/Loading";
 import AboutUs from "../pages/AboutUs";
 import Support from "../pages/Support";
+import Dashboard from "../pages/Dashboard";
+import Overview from "../pages/Dashboard/Overview";
 
 export const router = createBrowserRouter([
-    {
-        path: '/',
-        Component: Root,
-        children: [
-            {
-                index: true,
-                Component: Home,
-            },
-            {
-                path:'add-to-find-roommate',
-                element:<PrivateRoute><AddToFindRoommate/></PrivateRoute>
-            },
-            {
-                path: 'browse-listing',
-                loader: ()=>fetch(`${import.meta.env.VITE_server}/roommate`),
-                hydrateFallbackElement:<Loading></Loading>,
-                Component: BrowseListing
-            },
-            {
-                path: 'my-listing',
-                loader: ()=>fetch(`${import.meta.env.VITE_server}/roommate`),
-                element: <PrivateRoute><MyLIsting/></PrivateRoute>,
-                hydrateFallbackElement:<Loading></Loading>
-            },
-            {
-                path:'login',
-                Component: Login
-            },
-            {
-                path:'register',
-                Component: Register
-            },
-            {
-                path: 'about-us',
-                Component: AboutUs
-            },
-            {
-                path: 'support',
-                Component: Support
-            },
-            {
-                path: 'details/:id',
-                loader: ({params})=>fetch(`${import.meta.env.VITE_server}/details/${params.id}`),
-                element: <PrivateRoute><Details/></PrivateRoute>,
-                hydrateFallbackElement:<Loading></Loading>
-            },
-            {
-                path: 'update/:id',
-                loader: ()=>fetch(`${import.meta.env.VITE_server}/roommate`),
-                hydrateFallbackElement:<Loading></Loading>,
-                element: <PrivateRoute><UpdatePost/></PrivateRoute>
-            }
+  {
+    path: "/",
+    Component: Root,
+    children: [
+      {
+        index: true,
+        Component: Home,
+      },
 
-        ]
-    },
-    {
-        path:'*',
-        Component: Error
-    }
-])
+      {
+        path: "browse-listing",
+        loader: () => fetch(`${import.meta.env.VITE_server}/roommate`),
+        hydrateFallbackElement: <Loading></Loading>,
+        Component: BrowseListing,
+      },
+
+      {
+        path: "login",
+        Component: Login,
+      },
+      {
+        path: "register",
+        Component: Register,
+      },
+      {
+        path: "about-us",
+        Component: AboutUs,
+      },
+      {
+        path: "support",
+        Component: Support,
+      },
+    ],
+  },
+
+  {
+    path: "dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        index: true,
+        Component: Overview,
+      },
+      {
+        path: "dashboard/add-to-find-roommate",
+        element: (
+          <PrivateRoute>
+            <AddToFindRoommate />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "dashboard/my-listing",
+        loader: () => fetch(`${import.meta.env.VITE_server}/roommate`),
+        element: (
+          <PrivateRoute>
+            <MyLIsting />
+          </PrivateRoute>
+        ),
+        hydrateFallbackElement: <Loading></Loading>,
+      },
+      {
+        path: "dashboard/details/:id",
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_server}/details/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <Details />
+          </PrivateRoute>
+        ),
+        hydrateFallbackElement: <Loading></Loading>,
+      },
+      {
+        path: "dashboard/update/:id",
+        loader: () => fetch(`${import.meta.env.VITE_server}/roommate`),
+        hydrateFallbackElement: <Loading></Loading>,
+        element: (
+          <PrivateRoute>
+            <UpdatePost />
+          </PrivateRoute>
+        ),
+      },
+
+      {
+        path: "dashboard/browse-listing",
+        loader: () => fetch(`${import.meta.env.VITE_server}/roommate`),
+        hydrateFallbackElement: <Loading></Loading>,
+        Component: BrowseListing,
+      }
+    ],
+  },
+  {
+    path: "*",
+    Component: Error,
+  },
+]);

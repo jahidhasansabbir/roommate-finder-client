@@ -56,82 +56,97 @@ const Register = () => {
       .catch((err) => errorAlert(err.message));
   };
   return (
-    <div className="card bg-base-100 w-11/12 my-8 border border-base-300 max-w-sm shrink-0 shadow-2xl mx-auto">
-      <div className="card-body">
-        <h1 className="text-2xl font-bold md:text-4xl">Register now!</h1>
-        <form onSubmit={handleSignUpWithEmail} className="fieldset">
-          <label className="label">Name</label>
-          <input type="text" name="name" className="input" placeholder="Name" />
-          <label className="label">Email</label>
-          <input
-            type="email"
-            name="email"
-            className="input"
-            placeholder="Email"
-          />
+    <div className="max-w-md w-11/12 mx-auto mt-12 mb-8 bg-base-200 border border-base-300 rounded-2xl shadow-2xl overflow-hidden">
+  <div className="p-8">
+    <h1 className="text-3xl md:text-4xl font-bold text-center mb-6 text-white">Create Your Account</h1>
 
-          <label className="label">Password</label>
-          <input
-            type="password"
-            name="password"
-            className="input"
-            placeholder="Password"
-          />
-          <label className="label">Photo</label>
-          <input
-            type="text"
-            name="photoUrl"
-            className="input"
-            placeholder="PhotoURL"
-          />
-          <div>
-            <a className="link link-hover">Forgot password?</a>
-          </div>
-          <p className="text-red-600">{error}</p>
-          <button className="btn btn-neutral mt-4">Register</button>
-        </form>
-        <p className="text-center text-gray-400">or,</p>
-        <button
-          onClick={handleGoogleSignIn}
-          className="btn bg-white text-black border-[#e5e5e5]"
-        >
-          <svg
-            aria-label="Google logo"
-            width="16"
-            height="16"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-          >
-            <g>
-              <path d="m0 0H512V512H0" fill="#fff"></path>
-              <path
-                fill="#34a853"
-                d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"
-              ></path>
-              <path
-                fill="#4285f4"
-                d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"
-              ></path>
-              <path
-                fill="#fbbc02"
-                d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"
-              ></path>
-              <path
-                fill="#ea4335"
-                d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"
-              ></path>
-            </g>
-          </svg>
-          Login with Google
-        </button>
+    <form onSubmit={handleSignUpWithEmail} className="space-y-4">
+      <div>
+        <label htmlFor="name" className="block text-sm font-medium text-gray-300">Name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          className="input input-bordered w-full mt-1 bg-base-100 text-white"
+          placeholder="John Doe"
+        />
       </div>
-      <p className="text-center pb-4">
-        Already have an account?{" "}
-        <NavLink to="/login">
-          <span className="text-blue-700 hover:underline">Log in</span>
-        </NavLink>
-      </p>
-    </div>
+
+      <div>
+        <label htmlFor="email" className="block text-sm font-medium text-gray-300">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          className="input input-bordered w-full mt-1 bg-base-100 text-white"
+          placeholder="you@example.com"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="password" className="block text-sm font-medium text-gray-300">Password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          className="input input-bordered w-full mt-1 bg-base-100 text-white"
+          placeholder="Enter password"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="photoUrl" className="block text-sm font-medium text-gray-300">Photo URL</label>
+        <input
+          type="text"
+          name="photoUrl"
+          id="photoUrl"
+          className="input input-bordered w-full mt-1 bg-base-100 text-white"
+          placeholder="https://example.com/photo.jpg"
+        />
+      </div>
+
+      <div className="text-right">
+        <a href="#" className="text-sm text-blue-400 hover:underline">Forgot password?</a>
+      </div>
+
+      {error && <p className="text-red-500 text-sm">{error}</p>}
+
+      <button type="submit" className="btn bg-blue-500 text-white hover:bg-blue-600 w-full mt-2">
+        Register
+      </button>
+    </form>
+
+    <div className="divider text-sm text-gray-400 mt-6 mb-4">or</div>
+
+    <button
+      onClick={handleGoogleSignIn}
+      className="btn w-full bg-base-100 text-white border border-base-300 hover:shadow-md transition"
+    >
+      <svg
+        aria-label="Google logo"
+        width="20"
+        height="20"
+        className="mr-2"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+      >
+        <g>
+          <path fill="#34a853" d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341" />
+          <path fill="#4285f4" d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57" />
+          <path fill="#fbbc02" d="m90 341a208 200 0 010-171l63 49q-12 37 0 73" />
+          <path fill="#ea4335" d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55" />
+        </g>
+      </svg>
+      Continue with Google
+    </button>
+  </div>
+
+  <div className="text-center text-sm text-gray-400 border-t border-base-300 p-4">
+    Already have an account?{" "}
+    <NavLink to="/login" className="text-blue-400 hover:underline font-medium">Log in</NavLink>
+  </div>
+</div>
+
   );
 };
 

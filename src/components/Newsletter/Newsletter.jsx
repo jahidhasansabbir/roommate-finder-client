@@ -27,7 +27,7 @@ const Newsletter = () => {
   };
 
   return (
-    <div className="bg-base-100 my-12 md:my-8 py-10  rounded-xl shadow-md w-11/12  mx-auto mt-12 text-center">
+    <div className="bg-base-300 my-12 md:my-8 py-10  rounded-xl shadow-md w-11/12  mx-auto mt-12 text-center">
       <h2 className="text-2xl md:text-3xl font-bold text-blue-500 mb-3">
         Stay Updated with RoomMate Finder
       </h2>

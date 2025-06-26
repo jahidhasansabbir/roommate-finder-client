@@ -39,7 +39,7 @@ const MyListingRow = ({ roommate, setMyListing, myListing }) => {
 
       <th className="flex flex-col gap-1">
         <NavLink
-          to={`/update/${_id}`}
+          to={`dashboard/update/${_id}`}
           className="btn text-white bg-blue-600 btn-xs"
         >
           Update

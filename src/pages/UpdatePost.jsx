@@ -44,7 +44,7 @@ const UpdatePost = () => {
     const roommate = {
       title,
       location,
-      rentAmount,
+      rentAmount: parseFloat(rentAmount),
       roomType,
       lifeStyle,
       availability,
@@ -65,7 +65,7 @@ const UpdatePost = () => {
       .then(() => {
         sweetAlert();
         form.reset();
-        navigate('/my-listing')
+        navigate('dashboard/my-listing')
       });
   };
   return (
