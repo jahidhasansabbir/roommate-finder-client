@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useLoaderData, useNavigation } from "react-router";
-import TableRow from "../components/TableRow/TableRow";
 import Loading from "../pages/Loading";
 import RoommateCard from "../components/RoommateCard/RoommateCard";
 const BrowseListing = () => {
@@ -11,15 +10,7 @@ const BrowseListing = () => {
   if (navigation.state === "loading") {
     return <Loading></Loading>;
   }
-  // return (
-  //   <div className="w-11/12 mx-auto my-6">
-  //     <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 my-4'>
-  //        {roommates.map((roommate) => (
-  //             <RoommateCard key={roommate._id} roommate={roommate}></RoommateCard>
-  //           ))}
-  //     </div>
-  //   </div>
-  // );
+  
 
   const sortedRoommates = [...roommates].sort((a, b) => {
     return sortOrder === 'asc'
@@ -28,7 +19,7 @@ const BrowseListing = () => {
   });
     return (
     <div className="w-11/12 mx-auto my-6">
-      <div className="flex justify-between px-3 items-center mb-4 bg-gray-700 py-3 rounded-full">
+      <div className="flex justify-between px-3 items-center mb-4 bg-gray-800 py-3 rounded-full">
         <p>Sorted by Rent Amount</p>
         <select
           value={sortOrder}

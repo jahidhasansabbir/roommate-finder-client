@@ -46,7 +46,7 @@ const Header = () => {
     </>
   );
   return (
-    <div className="sticky z-50 top-0 bg-base-100 shadow-sm">
+    <div className="sticky z-50 top-0 bg-base-100/80 backdrop-blur-sm shadow-sm">
       <div className="w-11/12 navbar justify-between mx-auto  p-0 ">
         <div className="navbar-start w-auto">
           <div className="dropdown">
