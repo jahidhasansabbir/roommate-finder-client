@@ -4,6 +4,7 @@ import HowItWorks from "../components/HowItWorks/HowItWorks";
 import Review from "../components/Review/Review";
 import Roommate from "../components/Roommate/Roommate";
 import Newsletter from "../components/Newsletter/Newsletter";
+import Promotional from "../components/Promotional/Promotional";
 
 const roommateHomePromise = fetch(`${import.meta.env.VITE_server}/home`).then((res) =>
   res.json()
@@ -57,6 +58,7 @@ const Home = () => {
       {/* extra sections */}
       <HowItWorks></HowItWorks>
       <Review></Review>
+      <Promotional></Promotional>
       <Newsletter></Newsletter>
     </div>
   );

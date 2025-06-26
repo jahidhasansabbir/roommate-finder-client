@@ -3,7 +3,7 @@ import { NavLink } from "react-router"; // ✅ Fix: use 'react-router-dom' not '
 import { FaMapMarkerAlt } from "react-icons/fa";
 
 const RoommateCard = ({ roommate }) => {
-  const { _id, title, description, location } = roommate;
+  const { _id, title, rentAmount, description, location } = roommate;
 
   return (
     <div className="flex flex-col shadow-sm border border-base-300 rounded-lg p-6 w-full h-full">
@@ -15,17 +15,24 @@ const RoommateCard = ({ roommate }) => {
           <FaMapMarkerAlt className="text-blue-500" />
           <span>{location}</span>
         </p>
-
+          
+        
         <p className="text-sm">{description}</p>
       </div>
 
       {/* Button sticks to bottom */}
-      <NavLink
+     <div className="">
+      <div className="flex items-center justify-between my-2">
+        <p className="text-lg">Rent Amount: </p>
+        <p className="text-blue-500 font-bold text-lg">${rentAmount}</p>
+      </div>
+       <NavLink
         to={`/details/${_id}`}
-        className="mt-4 btn bg-blue-600 text-white w-full"
+        className=" btn bg-blue-600 text-white w-full"
       >
         See more
       </NavLink>
+     </div>
     </div>
   );
 };

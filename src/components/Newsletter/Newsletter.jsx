@@ -27,8 +27,8 @@ const Newsletter = () => {
   };
 
   return (
-    <div className="bg-base-100 my-12 py-10  rounded-xl shadow-md w-11/12  mx-auto mt-12 text-center">
-      <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3">
+    <div className="bg-base-100 my-12 md:my-8 py-10  rounded-xl shadow-md w-11/12  mx-auto mt-12 text-center">
+      <h2 className="text-2xl md:text-3xl font-bold text-blue-500 mb-3">
         Stay Updated with RoomMate Finder
       </h2>
       <p className=" mb-6 max-w-xl mx-auto">
@@ -44,7 +44,7 @@ const Newsletter = () => {
           className="input input-bordered w-full sm:w-80"
           required
         />
-        <button type="submit" className="btn btn-primary w-full sm:w-auto">
+        <button type="submit" className="btn bg-blue-500 w-full text-white sm:w-auto">
           Subscribe
         </button>
       </form>
