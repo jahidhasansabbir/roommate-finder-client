@@ -3,6 +3,7 @@ import Slider from "../components/Slider/Slider";
 import HowItWorks from "../components/HowItWorks/HowItWorks";
 import Review from "../components/Review/Review";
 import Roommate from "../components/Roommate/Roommate";
+import Newsletter from "../components/Newsletter/Newsletter";
 
 const roommateHomePromise = fetch(`${import.meta.env.VITE_server}/home`).then((res) =>
   res.json()
@@ -56,6 +57,7 @@ const Home = () => {
       {/* extra sections */}
       <HowItWorks></HowItWorks>
       <Review></Review>
+      <Newsletter></Newsletter>
     </div>
   );
 };

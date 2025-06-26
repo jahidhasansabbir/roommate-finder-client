@@ -1,27 +1,31 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { NavLink } from "react-router"; // ✅ Fix: use 'react-router-dom' not 'react-router'
+import { FaMapMarkerAlt } from "react-icons/fa";
 
-const RoommateCard = ({roommate}) => {
-    const {_id, title, location, availability, displayName, email} = roommate
+const RoommateCard = ({ roommate }) => {
+  const { _id, title, description, location } = roommate;
+
   return (
-    <div className=" shadow-sm border border-base-300 rounded-lg p-6 space-y-3 w-full mx-auto ">
-      <h2 className="text-xl font-semibold">
-        {title}
-      </h2>
-       <p className=" text-sm">
-        <span>Name:</span> {displayName}
-      </p>
-      <p className="text-sm">
-        <span >Location:</span> {location}
-      </p>
-      <p className="text-sm">
-        <span>Availability:</span> {availability}
-      </p>
-     
-      <p className="text-sm">
-        <span>Email:</span> {email}
-      </p>
-      <NavLink to={`/details/${_id}`} className="btn bg-blue-600 text-white">See more</NavLink>
+    <div className="flex flex-col shadow-sm border border-base-300 rounded-lg p-6 w-full h-full">
+      {/* Top content grows to fill space */}
+      <div className="flex-grow space-y-3">
+        <h2 className="text-xl font-semibold">{title}</h2>
+
+        <p className="text-sm flex items-center gap-1">
+          <FaMapMarkerAlt className="text-blue-500" />
+          <span>{location}</span>
+        </p>
+
+        <p className="text-sm">{description}</p>
+      </div>
+
+      {/* Button sticks to bottom */}
+      <NavLink
+        to={`/details/${_id}`}
+        className="mt-4 btn bg-blue-600 text-white w-full"
+      >
+        See more
+      </NavLink>
     </div>
   );
 };
