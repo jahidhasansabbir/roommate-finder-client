@@ -2,7 +2,7 @@
 
 Welcome to **Roommate Finder** — a web application designed to help people find suitable roommates by posting and browsing listings with ease and convenience.
 
-🔗 **Live Site:** [https://roommate-finderz.web.app](https://roommate-finderz.web.app)
+🔗 **Live Site:** [https://roommate-finders.web.app](https://roommate-finders.web.app)
 
 ---
 
