@@ -1,3 +1,4 @@
+import React from 'react';
 import { NavLink, Outlet } from "react-router";
 import {
   FiMenu,
@@ -8,16 +9,15 @@ import {
   FiMapPin,
   FiBarChart2,
 } from "react-icons/fi";
-
-export default function Dashboard() {
-  return (
-    <div className="drawer md:drawer-open bg-base-100 text-white">
+const Dashboard = () => {
+    return (
+        <div className="drawer lg:drawer-open bg-base-100 text-white">
       <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
 
       {/* ✅ Main Content */}
       <div className="drawer-content flex flex-col">
         {/* ✅ Top navbar (Mobile) */}
-        <div className="w-full navbar shadow-md  text-white md:hidden z-10">
+        <div className="w-full navbar shadow-md  text-white lg:hidden z-10">
           <div className="flex-1 px-4 text-xl font-bold">Dashboard</div>
           <div className="flex-none">
             <label htmlFor="dashboard-drawer" className="btn btn-square btn-ghost text-white">
@@ -27,7 +27,7 @@ export default function Dashboard() {
         </div>
 
         {/* ✅ Page Content */}
-        <div className="p-6 min-h-screen  text-white">
+        <div className=" min-h-screen  text-white">
           <Outlet />
         </div>
       </div>
@@ -71,5 +71,7 @@ export default function Dashboard() {
         </aside>
       </div>
     </div>
-  );
-}
+    );
+};
+
+export default Dashboard;

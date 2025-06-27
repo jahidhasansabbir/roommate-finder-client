@@ -13,8 +13,9 @@ import Error from "../pages/Error";
 import Loading from "../pages/Loading";
 import AboutUs from "../pages/AboutUs";
 import Support from "../pages/Support";
-import Dashboard from "../pages/Dashboard";
 import Overview from "../pages/Dashboard/Overview";
+import DashboardLayout from "../layout/DashboardLayout";
+
 
 export const router = createBrowserRouter([
   {
@@ -32,7 +33,17 @@ export const router = createBrowserRouter([
         hydrateFallbackElement: <Loading></Loading>,
         Component: BrowseListing,
       },
-
+      {
+        path: "details/:id",
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_server}/details/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <Details />
+          </PrivateRoute>
+        ),
+        hydrateFallbackElement: <Loading></Loading>,
+      },
       {
         path: "login",
         Component: Login,
@@ -47,7 +58,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "support",
-        Component: Support,
+       element: <PrivateRoute><Support></Support></PrivateRoute>
       },
     ],
   },
@@ -55,9 +66,7 @@ export const router = createBrowserRouter([
   {
     path: "dashboard",
     element: (
-      <PrivateRoute>
-        <Dashboard></Dashboard>
-      </PrivateRoute>
+        <DashboardLayout></DashboardLayout>
     ),
     children: [
       {
@@ -78,17 +87,6 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyLIsting />
-          </PrivateRoute>
-        ),
-        hydrateFallbackElement: <Loading></Loading>,
-      },
-      {
-        path: "dashboard/details/:id",
-        loader: ({ params }) =>
-          fetch(`${import.meta.env.VITE_server}/details/${params.id}`),
-        element: (
-          <PrivateRoute>
-            <Details />
           </PrivateRoute>
         ),
         hydrateFallbackElement: <Loading></Loading>,
