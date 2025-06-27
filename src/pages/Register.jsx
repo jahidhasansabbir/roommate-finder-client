@@ -58,7 +58,7 @@ const Register = () => {
   return (
     <div className="max-w-md w-11/12 mx-auto mt-12 mb-8 bg-base-200 border border-base-300 rounded-2xl shadow-2xl overflow-hidden">
   <div className="p-8">
-    <h1 className="text-3xl md:text-4xl font-bold text-center mb-6 text-white">Create Your Account</h1>
+    <h1 className="text-3xl md:text-4xl font-bold text-center mb-6 text-blue-500">Create Your Account</h1>
 
     <form onSubmit={handleSignUpWithEmail} className="space-y-4">
       <div>
@@ -120,7 +120,7 @@ const Register = () => {
 
     <button
       onClick={handleGoogleSignIn}
-      className="btn w-full bg-base-100 text-white border border-base-300 hover:shadow-md transition"
+      className="btn w-full bg-base-100 text-white border border-white hover:shadow-md transition"
     >
       <svg
         aria-label="Google logo"
