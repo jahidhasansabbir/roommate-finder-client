@@ -15,7 +15,7 @@ import AboutUs from "../pages/AboutUs";
 import Support from "../pages/Support";
 import Overview from "../pages/Dashboard/Overview";
 import DashboardLayout from "../layout/DashboardLayout";
-
+import DashboardBrowseListing from "../pages/Dashboard/DashboardBrowseListing"
 
 export const router = createBrowserRouter([
   {
@@ -58,7 +58,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "support",
-       element: <PrivateRoute><Support></Support></PrivateRoute>
+       element: <Support></Support>
       },
     ],
   },
@@ -74,7 +74,7 @@ export const router = createBrowserRouter([
         Component: Overview,
       },
       {
-        path: "dashboard/add-to-find-roommate",
+        path: "add-to-find-roommate",
         element: (
           <PrivateRoute>
             <AddToFindRoommate />
@@ -82,7 +82,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "dashboard/my-listing",
+        path: "my-listing",
         loader: () => fetch(`${import.meta.env.VITE_server}/roommate`),
         element: (
           <PrivateRoute>
@@ -92,7 +92,7 @@ export const router = createBrowserRouter([
         hydrateFallbackElement: <Loading></Loading>,
       },
       {
-        path: "dashboard/update/:id",
+        path: "update/:id",
         loader: () => fetch(`${import.meta.env.VITE_server}/roommate`),
         hydrateFallbackElement: <Loading></Loading>,
         element: (
@@ -103,10 +103,8 @@ export const router = createBrowserRouter([
       },
 
       {
-        path: "dashboard/browse-listing",
-        loader: () => fetch(`${import.meta.env.VITE_server}/roommate`),
-        hydrateFallbackElement: <Loading></Loading>,
-        Component: BrowseListing,
+        path: "browse-listing",
+        Component: DashboardBrowseListing,
       }
     ],
   },

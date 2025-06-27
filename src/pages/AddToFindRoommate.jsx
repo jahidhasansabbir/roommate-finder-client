@@ -1,10 +1,15 @@
 import React, { use} from "react";
 import { AuthContext } from "../context/AuthContext";
 import Swal from "sweetalert2";
+import { GeneralContext } from "../context/GeneralContext/GeneralContext";
+import { useNavigate } from "react-router";
+
 
 const AddToFindRoommate = () => {
+  const {refetch} = use(GeneralContext);
   const { user } = use(AuthContext);
   const { displayName, email } = user;
+  const navigate = useNavigate()
   const sweetAlert = () => {
       Swal.fire({
         title: "Roommate Posted!",
@@ -54,6 +59,8 @@ const AddToFindRoommate = () => {
           roommate._id = data.insertedId;
           sweetAlert();
           form.reset();
+          refetch()
+          navigate('/dashboard/my-listing')
         }
       });
   };
@@ -87,7 +94,7 @@ const AddToFindRoommate = () => {
             <label className="label">Rent Amount</label>
             <input
               required
-              type="text"
+              type="number"
               name="rentAmount"
               className="input w-full"
               placeholder="Enter Rent amount"
@@ -164,7 +171,7 @@ const AddToFindRoommate = () => {
             placeholder="Write your description..."
           ></textarea>
         </div>
-        <button className="btn btn-neutral mt-4">Add</button>
+        <button className="btn bg-blue-500 mt-4">Add</button>
       </form>
     </div>
   );

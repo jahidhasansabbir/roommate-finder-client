@@ -65,7 +65,7 @@ const UpdatePost = () => {
       .then(() => {
         sweetAlert();
         form.reset();
-        navigate('dashboard/my-listing')
+        navigate('/dashboard/my-listing')
       });
   };
   return (
@@ -101,7 +101,7 @@ const UpdatePost = () => {
             <input
               required
               defaultValue={rentAmount}
-              type="text"
+              type="number"
               name="rentAmount"
               className="input w-full"
               placeholder="Enter Rent amount"
@@ -192,7 +192,7 @@ const UpdatePost = () => {
             placeholder="Write your description..."
           ></textarea>
         </div>
-        <button className="btn btn-neutral mt-4">Update</button>
+        <button className="btn bg-blue-500 mt-4">Update</button>
       </form>
     </div>
   );

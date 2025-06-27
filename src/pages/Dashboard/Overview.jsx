@@ -1,26 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import {
-  FaClipboardList,
-  FaUserCircle,
-  FaRocket,
-  FaCheckCircle,
-} from "react-icons/fa";
 
 import StatCard from "../../components/Overview/StatCard";
 import MyListingCard from "../../components/Overview/MyListingCard";
-const itemsPromise = fetch(
-    `${import.meta.env.VITE_server}/roommate`
-  ).then((res) => res.json());
+
+
 const Overview = () => {
   const { user } = useContext(AuthContext);
-  const [dataPromise, setDataPromise]=useState(itemsPromise)
- useEffect(()=>{
-     const promise = fetch(
-    `${import.meta.env.VITE_server}/roommate`
-  ).then((res) => res.json());
-  setDataPromise(promise)
- },[])
   return (
     <section className="relative mx-auto  py-14 space-y-14 text-gray-100 overflow-hidden min-h-screen">
       {/* Background floating lights */}
@@ -58,10 +44,10 @@ const Overview = () => {
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
           {/* Card */}
-          <StatCard ItemsPromise={dataPromise}></StatCard>
+          <StatCard></StatCard>
 
           {/* Card */}
-          <MyListingCard ItemsPromise={dataPromise}></MyListingCard>
+          <MyListingCard></MyListingCard>
 
           {/* Card */}
           {/* <div className="group relative bg-gradient-to-br from-gray-800/60 via-gray-900/80 to-gray-950 rounded-4xl shadow-2xl p-8 border border-gray-800 transition-transform duration-500 hover:scale-105 hover:shadow-blue-500/30">

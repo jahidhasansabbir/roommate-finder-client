@@ -1,12 +1,13 @@
 import React, { use } from 'react';
 import { MdPostAdd } from 'react-icons/md';
 import { AuthContext } from '../../context/AuthContext';
+import { GeneralContext } from '../../context/GeneralContext/GeneralContext';
 
-const MyListingCard = ({ItemsPromise}) => {
-    const allListing = use(ItemsPromise)
+const MyListingCard = () => {
+    const {data} = use(GeneralContext)
     const {user} = use(AuthContext)
-    const myListing = allListing.filter(roommate=>roommate.email==user.email)
-    const myItemsCount = myListing.length
+    const myListing = data.filter(roommate=>roommate.email==user.email)
+    const myItemsCount = myListing.length;
     return (
         <div className="group relative bg-gradient-to-br from-gray-800/60 via-gray-900/80 to-gray-950 rounded-4xl shadow-2xl p-8 border border-gray-800 transition-transform duration-500 hover:scale-105 hover:shadow-blue-500/30">
           <div className="absolute -top-4 -right-4 w-16 h-16 bg-blue-400 rounded-full blur-2xl opacity-50 group-hover:opacity-80 transition"></div>

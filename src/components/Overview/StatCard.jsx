@@ -1,9 +1,10 @@
 import React, { use } from 'react';
 import { FaClipboardList } from 'react-icons/fa';
+import { GeneralContext } from '../../context/GeneralContext/GeneralContext';
 
-const StatCard = ({ ItemsPromise}) => {
-    const ItemsData = use(ItemsPromise)
-    const totalItemsCount = ItemsData.length
+const StatCard = () => {
+    const {data} = use(GeneralContext)
+    const totalItemsCount = data.length;
     return (
          <div className="group relative bg-gradient-to-br from-gray-800/60 via-gray-900/80 to-gray-950 rounded-4xl shadow-2xl p-8 border border-gray-800 transition-transform duration-500 hover:scale-105 hover:shadow-blue-500/30">
                   <div className="absolute -top-4 -right-4 w-16 h-16 bg-blue-500 rounded-full blur-2xl opacity-50 group-hover:opacity-80 transition"></div>

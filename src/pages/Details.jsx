@@ -49,7 +49,7 @@ const Details = () => {
   }, [id, likeCount]);
 
   return (
-    <section className="w-full min-h-screen bg-gradient-to-br from-blue-50 dark:from-gray-900 via-white dark:via-gray-800 to-blue-100 dark:to-gray-900 py-10 px-4 transition-all duration-300">
+    <section className="w-full  bg-gradient-to-br from-blue-50 dark:from-gray-900 via-white dark:via-gray-800 to-blue-100 dark:to-gray-900 py-10 px-4 transition-all duration-300">
       <div className="max-w-4xl mx-auto bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl shadow-2xl rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-700 p-8 space-y-6">
         {/* Header */}
         <div className="text-center">
